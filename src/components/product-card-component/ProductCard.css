@@ -1,0 +1,42 @@
+.products-container{
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(30rem, 1fr) );;
+    gap: var(--lg-space);
+  }
+  
+  .card-img{
+    object-fit: cover;
+    min-height: 25rem;
+  
+  
+  }
+  
+  .card-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .btn-primary-outline,.btn-primary{
+    text-align: center;
+  }
+  .primary-2{
+    border:1px solid var(--primary-second);
+    margin-bottom: 8px;
+  }
+  
+  .primary-2:hover{
+    background-color: var(--primary-second) ; 
+    
+  }
+  .icon-heart{
+    font-size: 2.4rem;
+    color:var(--grey);
+    cursor: pointer;
+  }
+  
+  .icon-heart-filled{
+    color:red;
+  }
+  
