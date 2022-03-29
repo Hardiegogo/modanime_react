@@ -13,16 +13,18 @@ export const products = [
     price: "2000",
     categoryName: "Action-figures",
     isBestSeller:true,
-    imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647807195/Naruto_lgd2bl.jpg"
+    imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647807195/Naruto_lgd2bl.jpg",
+    rating:'5'
   },
   {
     _id: uuid(),
     productName: "Goku Action figure",
     companyName: "companyXyz2",
     price: "2500",
-    categoryName: "Action-figures",
+    categoryName: "Masks",
     isBestSeller:true,
-    imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647807261/goku_gwqn8j.jpg"
+    imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647807261/goku_gwqn8j.jpg",
+    rating:'4'
   },
   {
     _id: uuid(),
@@ -31,6 +33,7 @@ export const products = [
     price: "2200",
     categoryName: "Action-figures",
     isBestSeller:true,
-    imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647807356/kaneki_c5gjvf.jpg"
+    imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647807356/kaneki_c5gjvf.jpg",
+    rating:'3'
   },
 ];
