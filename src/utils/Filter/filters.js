@@ -44,25 +44,12 @@ export const sortPrice=({state,filteredProducts})=>{
 }
 
 export const filterBySlider=({state,newFilteredProducts})=>{
-  let amount=0;
-  switch(state.slider){
-    case 1:
-      amount=1000;
-      break;
-    case 2:
-      amount=2000;
-      break;
-    case 3:
-      amount=3000;
-      break;
-    case 4:
-      amount=4000;
-      break;
-    default:
-      amount=4000
+
+  const sliderMapper={
+    1:1000,2:2000,3:3000,4:4000
   }
-  console.log('-------------')
-  console.log(amount)
+  let amount=state.slider?sliderMapper[state.slider]:4000
+
   newFilteredProducts=newFilteredProducts.filter((item)=>{
     if(item.price<=amount){
       console.log(item)
