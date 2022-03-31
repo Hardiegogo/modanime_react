@@ -8,10 +8,11 @@ import CategoryCard from '../../components/category-card-component/CategoryCard'
 import ProductCard from '../../components/product-card-component/ProductCard';
 import { dataReducer } from '../../reducers/dataReducer';
 import { loadData } from '../../utils/loadData';
+import { useProducts } from '../../context/useProducts';
 
 const Homepage= () => {
   
-  const [state,dispatch]=useReducer(dataReducer,{categories:[],products:[]})
+  const {state,dispatch}=useProducts()
 
   useEffect(()=>{
     loadData(dispatch,'products');
@@ -49,7 +50,7 @@ const Homepage= () => {
         <h2 class="mt-64">Best sellers</h2>
         <div class="product-list grid-auto-fit mt-24">
         {state.products.map((product)=>
-        <ProductCard product={product}/>)
+        <ProductCard product={product} key={product._id}/>)
         }
         
         </div>

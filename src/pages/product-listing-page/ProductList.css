@@ -1,0 +1,24 @@
+.app{
+    display: grid;
+    grid-template-columns: 20% 1fr 1fr 1fr;
+    grid-template-areas: 
+    'sidebar content content content';
+  }
+
+.content{
+  grid-area: content;
+  padding: var(--lg-space);
+  color: var(--black-shade);
+}
+
+.products-container{
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(30rem, 1fr) );;
+  gap: var(--lg-space);
+}
+
+.footer-details{
+  display: flex;
+  justify-content: space-between;
+}
