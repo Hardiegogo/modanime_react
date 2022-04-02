@@ -3,7 +3,6 @@ export const filRating=({state,newFilteredProducts})=>{
     if(state.filterByRatings){
       newFilteredProducts=newFilteredProducts.filter((item)=>{
         if(Number(item.rating)>=state.filterByRatings){
-          console.log(item)
           return true
         }
       })
@@ -52,7 +51,6 @@ export const filterBySlider=({state,newFilteredProducts})=>{
 
   newFilteredProducts=newFilteredProducts.filter((item)=>{
     if(item.price<=amount){
-      console.log(item)
       return true
     }
   })

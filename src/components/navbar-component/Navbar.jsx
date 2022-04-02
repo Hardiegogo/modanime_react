@@ -1,13 +1,20 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/useAuth';
+
 
 const Navbar=()=> {
+
+    const {authState,dispatchAuth}=useAuth()
+    const navigate=useNavigate()
+
   return (
     <header className='navbar'>
             <div className="header-left">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/naruto-sign.png" />
-                <a>
-                    <a href="../index.html"><h3>Modanime-store</h3></a>
-                </a>
+                <Link to='/'>
+                    <h3>Modanime-store</h3>
+                </Link>
             </div>
             <div className="searchbar">
                 <label for="product_search">
@@ -21,7 +28,7 @@ const Navbar=()=> {
                 <nav>
                     <ul>
                         <li>
-                            <a href="./pages/login_page.html"><i className='bx bx-log-in-circle icons'></i></a>
+                            {authState.isUserActive?<button onClick={()=>dispatchAuth({type:"USER_LOGOUT"})}><i class='bx bx-log-out-circle icons'></i></button>:<Link to='/login'><i className='bx bx-log-in-circle icons'></i></Link>}
                         </li>
                         <li>
                             <div className="badge-wrapper">

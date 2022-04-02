@@ -6,10 +6,12 @@ import { useProducts } from '../../context/useProducts'
 import { loadData } from '../../utils/loadData'
 import './ProductList.css'
 import {filRating,filterByCategory,sortPrice,filterBySlider} from '../../utils/Filter/filters'
+import { useAuth } from '../../context/useAuth'
 
 function ProductList() {
 
   const {state,dispatch}=useProducts()
+  const {authState,dispatchAuth}=useAuth()
 
   const showProducts=(state,dispatch)=>{
     let filteredProducts=[...state.products];
