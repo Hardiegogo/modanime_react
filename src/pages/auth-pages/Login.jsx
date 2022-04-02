@@ -4,7 +4,6 @@ import axios from 'axios'
 import './auth.css'
 import { useAuth } from '../../context/useAuth'
 import { Link, useNavigate } from 'react-router-dom'
-import { loginUser } from '../../utils/auth-utils/loginUser'
 
 const Login=()=>{
 
