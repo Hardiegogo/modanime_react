@@ -43,7 +43,7 @@ const Homepage= () => {
         <h2 className="mt-64">Categories</h2>
         <div  className="categories-list grid-auto-fit grid-category mt-24">
         { state.categories.map((category)=>
-          <CategoryCard category={category}/>
+          <CategoryCard category={category} key={category._id}/>
           )}
         </div>
 
