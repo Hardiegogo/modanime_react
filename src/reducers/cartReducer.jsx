@@ -1,3 +1,4 @@
+const initialCartState={activeUserCart:[],activeUserWishList:[]}
 export const cartReducer=(state,action)=>{
     switch(action.type){
         case "SET_WISHLIST":
