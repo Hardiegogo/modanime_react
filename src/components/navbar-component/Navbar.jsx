@@ -8,6 +8,7 @@ const logoutHandler=(dispatchAuth,dispatchCart)=>{
     dispatchCart({type:"RESET_WISHLIST"})
 }
 
+const wishlistClickHandler=({isUserActive},navigate)=>{if(isUserActive===true){navigate('/wishlist')}else{navigate('/login')}}
 
 const Navbar=()=> {
 
@@ -41,7 +42,7 @@ const Navbar=()=> {
                         </li>
                         <li>
                             <div className="badge-wrapper">
-                                <button onClick={()=>{if(authState.isUserActive===true){navigate('/wishlist')}else{navigate('/login')}}}><i className='bx bx-heart icons'></i></button>
+                                <button onClick={()=>wishlistClickHandler(authState,navigate)}><i className='bx bx-heart icons'></i></button>
                                 <div className="badge btn-badge">{cartState.activeUserWishList.length}</div>
                             </div>
                         </li>
