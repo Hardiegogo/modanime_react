@@ -1,7 +1,40 @@
+import axios from 'axios'
 import React from 'react'
+import { useState } from 'react'
+import { useCart } from '../../context/useCart'
 import './ProductCard.css'
+import {useAuth} from '../../context/useAuth'
+import { useNavigate } from 'react-router-dom'
 
-const ProductCard=({product:{productName,categoryName,companyName,imageUrl,price,rating}})=> {
+import { addToWishList,removeFromWishlist } from '../../utils/wishlist-handling'
+
+
+
+const ProductCard=({product:{_id,productName,categoryName,companyName,imageUrl,price,rating,},filled})=> {
+    const{dispatchCart}=useCart()
+    const [heart,setHeart]=useState(filled)
+    const {authState}=useAuth()
+    const navigate=useNavigate()
+    const clickHandler=()=>{
+        if(authState.isUserActive){
+            if(heart===true){
+                removeFromWishlist(_id,dispatchCart)
+                setHeart(false)
+            }else{
+                addToWishList({_id,productName,categoryName,companyName,imageUrl,price,rating},dispatchCart);
+                setHeart(true)
+            }
+        }else{
+            navigate('/login')
+        }
+        
+        
+    }
+
+    const removeHandler=()=>{
+        removeFromWishlist(_id,dispatchCart)
+    }
+    
   return (
     <div className="card card-shadow">
                     <div className="card-content badge-wrapper">
@@ -14,7 +47,11 @@ const ProductCard=({product:{productName,categoryName,companyName,imageUrl,price
                             New
                         </div>
                         <div className="badge card-top-right-icon">
-                            <i className='bx bx-heart icon-heart'></i>
+                            <button onClick={clickHandler}>
+                            <i className={`bx  icon-heart ${ heart ? 'bxs-heart icon-heart-filled': 'bx-heart'}`}></i>
+                            </button>
+
+                            
                         </div>
                     </div>
                     <div className="card-footer">

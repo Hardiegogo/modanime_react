@@ -1,12 +1,22 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/useAuth';
+import {useCart} from '../../context/useCart'
 
+const logoutHandler=(dispatchAuth,dispatchCart)=>{
+    dispatchAuth({type:"USER_LOGOUT"})
+    dispatchCart({type:"RESET_WISHLIST"})
+}
+
+const wishlistClickHandler=({isUserActive},navigate)=>{if(isUserActive===true){navigate('/wishlist')}else{navigate('/login')}}
 
 const Navbar=()=> {
 
     const {authState,dispatchAuth}=useAuth()
     const navigate=useNavigate()
+    const {cartState,dispatchCart}=useCart()
+
+
 
   return (
     <header className='navbar'>
@@ -28,12 +38,12 @@ const Navbar=()=> {
                 <nav>
                     <ul>
                         <li>
-                            {authState.isUserActive?<button onClick={()=>dispatchAuth({type:"USER_LOGOUT"})}><i class='bx bx-log-out-circle icons'></i></button>:<Link to='/login'><i className='bx bx-log-in-circle icons'></i></Link>}
+                            {authState.isUserActive?<button onClick={()=>logoutHandler(dispatchAuth,dispatchCart)}><i class='bx bx-log-out-circle icons'></i></button>:<Link to='/login'><i className='bx bx-log-in-circle icons'></i></Link>}
                         </li>
                         <li>
                             <div className="badge-wrapper">
-                                <a href="./pages/wishlist_page.html"><i className='bx bx-heart icons'></i></a>
-                                <div className="badge btn-badge">4</div>
+                                <button onClick={()=>wishlistClickHandler(authState,navigate)}><i className='bx bx-heart icons'></i></button>
+                                <div className="badge btn-badge">{cartState.activeUserWishList.length}</div>
                             </div>
                         </li>
                         <li>
