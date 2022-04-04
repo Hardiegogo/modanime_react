@@ -28,3 +28,13 @@
   font-size: 2.4rem;
   color: var(--pure-white);
 }
+.App{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.wishlist{
+  min-height: calc(100vh - 21rem);
+  text-align: center;
+}
