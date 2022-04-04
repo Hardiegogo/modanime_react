@@ -1,6 +1,4 @@
-import { createContext } from "react";
-import { useContext } from "react";
-import { useReducer } from "react/cjs/react.development";
+import { createContext,useReducer,useContext } from "react";
 import { cartReducer } from "../reducers/cartReducer";
 
 const CartContext=createContext(null)
