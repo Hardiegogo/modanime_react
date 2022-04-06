@@ -21,7 +21,7 @@ export const products = [
     productName: "Goku Action figure",
     companyName: "companyXyz2",
     price: "2500",
-    categoryName: "Masks",
+    categoryName: "Action-figures",
     isBestSeller:true,
     imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647807261/goku_gwqn8j.jpg",
     rating:'4'
@@ -34,6 +34,16 @@ export const products = [
     categoryName: "Action-figures",
     isBestSeller:true,
     imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647807356/kaneki_c5gjvf.jpg",
+    rating:'3'
+  },
+  {
+    _id: uuid(),
+    productName: "Kaneki Mask",
+    companyName: "companyXyz4",
+    price: "1000",
+    categoryName: "Masks",
+    isBestSeller:true,
+    imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1649246784/kaneki_mask_cxvsrt.jpg",
     rating:'3'
   },
 ];

@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const loginUser=async ({email,password},authState,dispatchAuth,navigate)=>{
     try {
-        console.log(email,password)
         const response = await axios.post(`/api/auth/login`, {
           email,
           password

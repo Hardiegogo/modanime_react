@@ -19,7 +19,7 @@ const Login = () => {
     <div className="content-auth">
       <div className="auth-container card-shadow p-24">
         <h3 className="center-text">Login</h3>
-        <label for="username">
+        <label htmlFor="username">
           <h4 className="mt-16">Email:</h4>
           <input
             className="input input-primary"
@@ -41,7 +41,7 @@ const Login = () => {
           />
         </label>
         <div className="auth_options mt-16">
-          <label for="remember-me x-small-text">
+          <label htmlFor="remember-me x-small-text">
             <input type="checkbox" id="remember-me" />I accept all terms and
             conditions.
           </label>

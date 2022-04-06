@@ -22,3 +22,18 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media screen and (max-width:700px) {
+  .app{
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    'navbar'
+    'sidebar'
+    'content'
+    'footer'
+    ;
+  }
+  .sidebar{
+    position: static
+  }
+}

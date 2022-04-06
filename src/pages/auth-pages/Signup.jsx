@@ -23,15 +23,15 @@ const Signup=()=>{
           <div className="auth-container card-shadow p-24">
                 
                     <h3 className="center-text">Signup</h3>
-                    <label for="username">
+                    <label htmlFor="username">
                         <h4 className="mt-16">First name:</h4>
                         <input className="input input-primary" type="text" name="firstName"value={user.firstName} onChange={changeHandler}/>
                     </label>
-                    <label for="username">
+                    <label htmlFor="username">
                         <h4 className="mt-16">Last name:</h4>
                         <input className="input input-primary" type="text" name="lastName" value={user.lastName} onChange={changeHandler}/>
                     </label>
-                    <label for="username">
+                    <label htmlFor="username">
                         <h4 className="mt-16">Email:</h4>
                         <input className="input input-primary" type="email" name="email" value={user.email} onChange={changeHandler}/>
                     </label>
@@ -39,7 +39,7 @@ const Signup=()=>{
                     <input className="input input-primary" id="user-password" name="password" type="password" value={user.password} onChange={changeHandler}/>
                     </label>
                     <div className="auth_options mt-16">
-                        <label for="remember-me x-small-text">
+                        <label htmlFor="remember-me x-small-text">
                             <input type="checkbox" id="remember-me"/>
                             I accept all terms and conditions.
                         </label>
