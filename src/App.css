@@ -34,7 +34,34 @@
   
 }
 
-.wishlist{
+.wishlist,.cart-page{
   min-height: calc(100vh - 21rem);
   text-align: center;
+}
+
+@media screen and (max-width:600px) {
+  html{
+    font-size: 50%;
+  }
+  .hero{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .hero-left-content{
+    text-align: center;
+    margin-top: var(--md-space);
+  }
+  .btn-hero{
+    margin: auto;
+    margin-top: 1rem;
+  }
+  .category{
+    max-width: 30rem;
+  }
+  .grid-category{
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    gap: 3rem;
+    justify-items: center;
+  }
+  
 }

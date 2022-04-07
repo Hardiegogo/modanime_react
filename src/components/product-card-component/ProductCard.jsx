@@ -7,15 +7,22 @@ import {useAuth} from '../../context/useAuth'
 import { useNavigate } from 'react-router-dom'
 
 import { addToWishList,removeFromWishlist } from '../../utils/wishlist-handling'
+import { addToCart,removeFromCart } from '../../utils/cart-handling'
 
+const calculateInCart=(cartState,_id)=>{
+    const {activeUserCart}=cartState
+    const result=activeUserCart.find((product)=>product._id===_id)
+    if(result){return true}else return false;
+}
 
 
 const ProductCard=({product:{_id,productName,categoryName,companyName,imageUrl,price,rating,},filled})=> {
-    const{dispatchCart}=useCart()
+    const{cartState,dispatchCart}=useCart()
     const [heart,setHeart]=useState(filled)
+    const [inCart,setInCart]=useState(calculateInCart(cartState,_id))
     const {authState}=useAuth()
     const navigate=useNavigate()
-    const clickHandler=()=>{
+    const wishlistClickHandler=()=>{
         if(authState.isUserActive){
             if(heart===true){
                 removeFromWishlist(_id,dispatchCart)
@@ -31,9 +38,20 @@ const ProductCard=({product:{_id,productName,categoryName,companyName,imageUrl,p
         
     }
 
-    const removeHandler=()=>{
-        removeFromWishlist(_id,dispatchCart)
+    const cartClickHandler=()=>{
+        if(authState.isUserActive){
+            if(inCart){
+                navigate('/cart')
+            }else{
+                addToCart({_id,productName,categoryName,companyName,imageUrl,price,rating},dispatchCart)
+                setInCart(!inCart)
+            }
+            
+        }else{
+            navigate('/login')
+        }
     }
+
     
   return (
     <div className="card card-shadow">
@@ -47,7 +65,7 @@ const ProductCard=({product:{_id,productName,categoryName,companyName,imageUrl,p
                             New
                         </div>
                         <div className="badge card-top-right-icon">
-                            <button onClick={clickHandler}>
+                            <button onClick={wishlistClickHandler}>
                             <i className={`bx  icon-heart ${ heart ? 'bxs-heart icon-heart-filled': 'bx-heart'}`}></i>
                             </button>
 
@@ -60,7 +78,8 @@ const ProductCard=({product:{_id,productName,categoryName,companyName,imageUrl,p
                             <p className='xx-small-text'>Rating: {rating} stars</p>
                         </div>
                         <button className="btn btn-primary">Buy now</button>
-                        <button className="btn btn-primary-outline primary-2">Add to cart</button>
+                        {inCart ? <button className="btn btn-secondary" onClick={cartClickHandler} >Go to Cart</button>:<button className="btn btn-primary-outline primary-2" onClick={cartClickHandler}>Add to cart</button>}
+                        
                     </div>
           </div>
   )

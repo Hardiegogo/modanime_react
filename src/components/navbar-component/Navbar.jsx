@@ -9,6 +9,7 @@ const logoutHandler=(dispatchAuth,dispatchCart)=>{
 }
 
 const wishlistClickHandler=({isUserActive},navigate)=>{if(isUserActive===true){navigate('/wishlist')}else{navigate('/login')}}
+const cartClickHandler=({isUserActive},navigate)=>{if(isUserActive===true){navigate('/cart')}else{navigate('/login')}}
 
 const Navbar=()=> {
 
@@ -48,8 +49,8 @@ const Navbar=()=> {
                         </li>
                         <li>
                             <div className="badge-wrapper">
-                                <a href="./pages/cart_page.html"><i className='bx bx-cart-alt icons'></i></a>
-                                <div className="badge btn-badge">1</div>
+                                <button onClick={()=>cartClickHandler(authState,navigate)}><i className='bx bx-cart-alt icons'></i></button>
+                                <div className="badge btn-badge">{cartState.activeUserCart.length}</div>
                             </div>
                         </li>
                     </ul>

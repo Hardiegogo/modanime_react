@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useReducer } from "react";
 import "./Homepage.css";
 import { useEffect } from "react";
@@ -12,7 +12,7 @@ import { useProducts } from "../../context/useProducts";
 
 const Homepage = () => {
   const { state, dispatch } = useProducts();
-
+  const navigate = useNavigate();
   useEffect(() => {
     loadData(dispatch, "products");
     loadData(dispatch, "categories");
@@ -53,7 +53,7 @@ const Homepage = () => {
 
       <h2 class="mt-64">Best sellers</h2>
       <div class="product-list grid-auto-fit mt-24">
-        {state.products.map((product) => (
+        {state.products.slice(0, 4).map((product) => (
           <ProductCard product={product} key={product._id} />
         ))}
       </div>

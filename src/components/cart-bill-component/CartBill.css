@@ -1,0 +1,9 @@
+.cart-bill{
+    height: fit-content;
+    min-width: 20rem;
+    align-self: top;
+}
+.cart-detail{
+    display: flex;
+    justify-content: space-between;
+}

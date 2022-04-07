@@ -18,6 +18,26 @@ export const cartReducer=(state,action)=>{
             }
         case "RESET_WISHLIST":
             return{...initialCartState}
+        case "SET_CART":
+            return{
+                ...state,
+                activeUserCart:action.payload
+            }
+        case "ADD_TO_CART":
+            return{
+                ...state,
+                activeUserCart:action.payload
+            }
+        case "REMOVE_FROM_CART":
+            return{
+                ...state,
+                activeUserCart:action.payload
+            }
+        case "CHANGE_QUANTITY":
+            return{
+                ...state,
+                activeUserCart:action.payload
+            }
         default:
             return state
     }
