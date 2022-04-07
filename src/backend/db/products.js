@@ -46,4 +46,14 @@ export const products = [
     imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1649246784/kaneki_mask_cxvsrt.jpg",
     rating:'3'
   },
+  {
+    _id: uuid(),
+    productName: "Naruto tshirt",
+    companyName: "companyXyz5",
+    price: "1200",
+    categoryName: "T-shirts",
+    isBestSeller:true,
+    imageUrl:"https://res.cloudinary.com/dqqehaaqo/image/upload/v1647794734/tshirt_ieikhp.jpg",
+    rating:'3'
+  },
 ];
