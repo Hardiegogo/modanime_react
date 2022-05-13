@@ -15,10 +15,16 @@ const calculateInCart=(cartState,_id)=>{
     if(result){return true}else return false;
 }
 
+const calculateInWishlist=(cartState,_id)=>{
+    const {activeUserWishList}=cartState
+    const result=activeUserWishList.find((item)=>item._id===_id)
+    if(result){return true}else return false;
+}
+
 
 const ProductCard=({product:{_id,productName,categoryName,companyName,imageUrl,price,rating,},filled})=> {
     const{cartState,dispatchCart}=useCart()
-    const [heart,setHeart]=useState(filled)
+    const [heart,setHeart]=useState(calculateInWishlist(cartState,_id))
     const [inCart,setInCart]=useState(calculateInCart(cartState,_id))
     const {authState}=useAuth()
     const navigate=useNavigate()

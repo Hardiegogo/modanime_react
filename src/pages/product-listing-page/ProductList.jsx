@@ -37,7 +37,7 @@ function ProductList() {
         <main className='content'>
           <h3>Showing all products</h3>
           <div className="products-container mt-24">
-            {filteredProducts.map((product)=><ProductCard product={product} key={product._id} filled={false}/>)}
+            {filteredProducts.map((product)=><ProductCard product={product} key={product._id}/>)}
           </div>
           
         </main>

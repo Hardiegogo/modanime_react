@@ -15,7 +15,9 @@ const CartItemCard=({product:{_id,productName,categoryName,companyName,imageUrl,
         removeFromCart(_id,dispatchCart)
     }
     const moveToWishlist=()=>{
-        addToWishList({_id,productName,categoryName,companyName,imageUrl,price,rating},dispatchCart)
+        if(!cartState.activeUserWishList.find(product=>product._id===_id)){
+            addToWishList({_id,productName,categoryName,companyName,imageUrl,price,rating},dispatchCart)
+        }  
         removeFromCart(_id,dispatchCart)
     }
 

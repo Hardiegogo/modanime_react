@@ -28,7 +28,20 @@ const Sidebar = () => {
           onChange={(e) =>
             dispatch({ type: "SET_SLIDER", payload: e.target.value })
           }
+          
         />
+        <ul className="slider-values mt-1">
+          <li>
+          </li>
+          <li className="ml-16">1000
+          </li>
+          <li>2000
+          </li>
+          <li>3000
+          </li>
+          <li>4000
+          </li>
+        </ul> 
       </div>
       <div className="category-container mt-32">
         <h3>Categories</h3>
